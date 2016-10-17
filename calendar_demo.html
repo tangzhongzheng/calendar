@@ -1,0 +1,88 @@
+
+<html>
+  <head>
+    <title>calendar_demo</title>
+    <link rel="stylesheet" href="https://vux.li/gitfile/dist/vux.css?v0.1.1">
+    <style>
+    * {margin:0;padding:0;}
+    body {
+      padding: 50px 10px 0 10px;
+
+    }
+    #infor {
+      width: 50%;
+      float: left;
+      margin-top:30px 
+    }
+    #calendar {
+      width: 50%;
+      float: right;
+    }
+    h2 {
+      font-size: 18px
+    }
+    small {
+      color: #f0f0f0; 
+    }
+    ul {
+      margin-top: 10px;
+      margin-left: 10px
+    }
+    ul li {
+      display: flex;
+      margin: 5px
+    }
+    ul li p {
+      margin-left: 100px
+    }
+    ul li:nth-child(2) p {
+      margin-left: 120px
+    }
+    ul li:nth-child(3) p {
+      margin-left: 120px
+    }
+    </style>
+    <script src="https://cdn.jsdelivr.net/vue/1.0.24/vue.min.js"></script>
+    <!--components-->
+    <script src="https://vux.li/gitfile/dist/components/inline-calendar/index.js?v0.1.1"></script>
+    <script src="https://vux.li/gitfile/dist/components/group/index.js?v0.1.1"></script>
+    <script src="https://vux.li/gitfile/dist/components/cell/index.js?v0.1.1"></script>
+    <!--filters-->
+  </head>
+  <body>
+    <div id="demo">
+      <div id="infor">      
+        <h2>Step 2: Select Early Payment Date</h2>
+        <small>Select different dates to see different discount rates</small>
+        <ul>
+          <li><h2>Early Payment Date</h2><p>{{value}}</p></li>
+          <li><h2>DIscount Percent</h2><p>1.207%</p></li>
+          <li><h2>Discount Amount</h2><p>$846.65</p></li>
+        </ul>
+      </div>
+      <div id="calendar">
+        <inline-calendar :value.sync="value"></inline-calendar>
+      </div>
+
+    </div>
+    <script>
+    // register components
+      Vue.component('inline-calendar', vuxInlineCalendar)
+      Vue.component('group', vuxGroup)
+      Vue.component('cell', vuxCell)
+
+    // register filters
+
+    new Vue({
+      el: '#demo',
+      
+  data () {
+    return {
+      value: 'TODAY'
+    }
+  }
+
+    })
+    </script>
+  </body>
+</html>
